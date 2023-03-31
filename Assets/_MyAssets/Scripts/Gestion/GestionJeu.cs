@@ -6,11 +6,8 @@ public class GestionJeu : MonoBehaviour
 {
     //Attributs
     private int _pointage;
-
-    public int GetPointage()
-    {
-        return _pointage;
-    }
+    private float _tempsFinal = 0;
+    private float _tempsDepart = 0;
 
     private void Awake()
     {
@@ -39,9 +36,36 @@ public class GestionJeu : MonoBehaviour
     }
 
     // Méthodes publiques
+    /*
+     * Méthode publique qui permet d'augmenter le pointage de 1
+     */
     public void AugmenterPointage()
     {
         _pointage++;
+        UIManager uiManager = FindObjectOfType<UIManager>();
+        uiManager.ChangerPointage(_pointage);
+    }
+
+    // Accesseur qui retourne la valeur de l'attribut pointage
+    public int GetPointage()
+    {
+        return _pointage;
+    }
+
+    public float GetTempsDepart()
+    {
+        return _tempsDepart;
+    }
+
+
+    public void SetTempsFinal(float p_tempFinal)
+    {
+        _tempsFinal = p_tempFinal - _tempsDepart;
+    }
+
+    public float GetTempsFinal()
+    {
+        return _tempsFinal;
     }
 
 
