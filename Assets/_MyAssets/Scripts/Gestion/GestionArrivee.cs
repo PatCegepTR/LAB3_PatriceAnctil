@@ -20,7 +20,7 @@ public class GestionArrivee : MonoBehaviour
     {
         int indexScene = SceneManager.GetActiveScene().buildIndex;
 
-        if(indexScene == 2)
+        if(indexScene == 3)
         {
             if (collision.gameObject.tag == "Player")
             {

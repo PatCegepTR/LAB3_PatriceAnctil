@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         _gestionJeu = FindObjectOfType<GestionJeu>();
-        _txtAccrochages.text = "Accrochages : " + _gestionJeu.GetPointage();
+        _txtAccrochages.text = "Hits : " + _gestionJeu.GetPointage();
         Time.timeScale = 1;
         _enPause = false;
     }
@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         float temps = Time.time - _gestionJeu.GetTempsDepart();
-        _txtTemps.text = "Temps : " + temps.ToString("f2");
+        _txtTemps.text = "Time : " + temps.ToString("f2");
         GestionPause();
     }
 
@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
 
     public void ChangerPointage(int p_pointage)
     {
-        _txtAccrochages.text = "Accrochages : " + p_pointage.ToString();
+        _txtAccrochages.text = "Hits : " + p_pointage.ToString();
     }
 
     public void EnleverPause()
