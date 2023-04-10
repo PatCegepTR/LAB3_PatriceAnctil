@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GestionJeu : MonoBehaviour
 {
@@ -25,20 +27,25 @@ public class GestionJeu : MonoBehaviour
     private void Start()
     {
         _pointage = 0;
-        Instructions();
     }
 
-    private static void Instructions()
+    private void Update()
     {
-        Debug.Log("*** Prison ***");
-        Debug.Log("Rejoins ta femme à la cafétéria de la prison, prend la voiture pour rejoindre ton avion puis partez vers le mexique!!!");
-        Debug.Log("Chaque obstacle ou policier qui sera touché entraine une pénalité");
+        if (SceneManager.GetActiveScene().buildIndex == 3 || SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            Destroy(gameObject);
+        }
     }
+
+    //private static void Instructions()
+    //{
+    //    Debug.Log("*** Prison ***");
+    //    Debug.Log("Rejoins ta femme à la cafétéria de la prison, prend la voiture pour rejoindre ton avion puis partez vers le mexique!!!");
+    //    Debug.Log("Chaque obstacle ou policier qui sera touché entraine une pénalité");
+    //}
+
 
     // Méthodes publiques
-    /*
-     * Méthode publique qui permet d'augmenter le pointage de 1
-     */
     public void AugmenterPointage()
     {
         _pointage++;

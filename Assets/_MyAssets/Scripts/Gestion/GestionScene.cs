@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GestionScene : MonoBehaviour
 {
+
+    [SerializeField] private GameObject _menuInstructions = default;
+
     public void ChangerSceneSuivante()
     {
         int noScene = SceneManager.GetActiveScene().buildIndex; // Récupère l'index de la scène en cours
@@ -19,6 +22,18 @@ public class GestionScene : MonoBehaviour
     public void ChargerSceneDepart()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void OuvrirInstructions()
+    {
+        _menuInstructions.SetActive(true);
+
+    }
+
+    public void FermerInstructions()
+    {
+        _menuInstructions.SetActive(false);
+
     }
 
 }

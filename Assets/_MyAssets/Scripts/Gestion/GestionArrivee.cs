@@ -18,28 +18,19 @@ public class GestionArrivee : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        int indexScene = SceneManager.GetActiveScene().buildIndex;
-
-        if(indexScene == 3)
+        if (collision.gameObject.tag == "Player")  
         {
-            if (collision.gameObject.tag == "Player")
+            int indexScene = SceneManager.GetActiveScene().buildIndex; 
+            if (indexScene == (SceneManager.sceneCountInBuildSettings - 2)) 
             {
-                int penalite = _gestionJeu.GetPointage();
-                Debug.Log("Vous avez fini en : " + Time.time + " secondes");
-                Debug.Log("Vous avez percuté " + penalite + " obstacles");
-
-                float total = Time.time + penalite;
-                Debug.Log("Le temps total est donc de " + total + " secondes");
-
-                _player.FinPartie();
+                _gestionJeu.SetTempsFinal(Time.time);
+                SceneManager.LoadScene(indexScene + 1);
+            }
+            else
+            {
+                SceneManager.LoadScene(indexScene + 1);
             }
         }
-        else
-        {
-            //Charger la scène suivante
-            SceneManager.LoadScene(indexScene + 1);
-        }
-        
     }
 
     
