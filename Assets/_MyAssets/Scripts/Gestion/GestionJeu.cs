@@ -37,14 +37,6 @@ public class GestionJeu : MonoBehaviour
         }
     }
 
-    //private static void Instructions()
-    //{
-    //    Debug.Log("*** Prison ***");
-    //    Debug.Log("Rejoins ta femme à la cafétéria de la prison, prend la voiture pour rejoindre ton avion puis partez vers le mexique!!!");
-    //    Debug.Log("Chaque obstacle ou policier qui sera touché entraine une pénalité");
-    //}
-
-
     // Méthodes publiques
     public void AugmenterPointage()
     {
