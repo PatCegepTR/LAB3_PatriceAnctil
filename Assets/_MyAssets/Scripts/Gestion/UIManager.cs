@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _txtAccrochages = default;
-    [SerializeField] private TMP_Text _txtTemps = default;
+    [SerializeField] private TMP_Text _txtHits = default;
+    [SerializeField] private TMP_Text _txtTime = default;
     [SerializeField] private GameObject _menuPause = default;
     private bool _enPause;
     private GestionJeu _gestionJeu;
@@ -15,16 +17,20 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         _gestionJeu = FindObjectOfType<GestionJeu>();
-        _txtAccrochages.text = "Hits : " + _gestionJeu.GetPointage();
+        _txtHits.text = "Hits : " + _gestionJeu.GetPointage();
         Time.timeScale = 1;
         _enPause = false;
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            _gestionJeu.SetTempsDepart();
+        }
     }
 
 
     private void Update()
     {
         float temps = Time.time - _gestionJeu.GetTempsDepart();
-        _txtTemps.text = "Time : " + temps.ToString("f2");
+        _txtTime.text = "Time : " + temps.ToString("f2");
         GestionPause();
     }
 
@@ -44,7 +50,7 @@ public class UIManager : MonoBehaviour
 
     public void ChangerPointage(int p_pointage)
     {
-        _txtAccrochages.text = "Hits : " + p_pointage.ToString();
+        _txtHits.text = "Hits : " + p_pointage.ToString();
     }
 
     public void EnleverPause()

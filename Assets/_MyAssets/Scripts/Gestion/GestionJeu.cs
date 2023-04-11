@@ -45,17 +45,19 @@ public class GestionJeu : MonoBehaviour
         uiManager.ChangerPointage(_pointage);
     }
 
-    // Accesseur qui retourne la valeur de l'attribut pointage
     public int GetPointage()
     {
         return _pointage;
     }
 
+    public void SetTempsDepart()
+    {
+        _tempsDepart = Time.time;
+    }
     public float GetTempsDepart()
     {
         return _tempsDepart;
     }
-
 
     public void SetTempsFinal(float p_tempFinal)
     {

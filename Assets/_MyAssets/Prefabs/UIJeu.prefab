@@ -1043,8 +1043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9145d7da61ac74eb5ca577e72cf6ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _txtAccrochages: {fileID: 3937666676466483466}
-  _txtTemps: {fileID: 3937666677370271833}
+  _txtHits: {fileID: 3937666676466483466}
+  _txtTime: {fileID: 3937666677370271833}
   _menuPause: {fileID: 3937666675873964841}
 --- !u!114 &3937666677004051694
 MonoBehaviour:
@@ -1058,6 +1058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0617ce4494e2654c877d0d980c846bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _menuInstructions: {fileID: 0}
 --- !u!1 &3937666676466483508
 GameObject:
   m_ObjectHideFlags: 0
